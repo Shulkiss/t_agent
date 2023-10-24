@@ -1,0 +1,128 @@
+*{
+    font-family: 'Open Sans', sans-serif;
+    box-sizing: border-box;
+}
+
+:root{
+    --main-color: ;
+    --h1-font: 5rem;
+    --h2-font: 3 rem;
+    --p-font: 1rem;
+}
+
+body{
+    margin: 0;
+    color: #fff;
+    background: #000;
+}
+
+header{
+    top: 0;
+    right: 0;
+    width: 100vw;
+    background: transparent;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.logo{
+    font-size: 33px;
+    font-weight: 700;
+    padding: 22px 17%;
+    text-decoration: none;
+    color: white;
+}
+
+.nav{
+    display: flex;
+    padding-right: 50px;
+}
+
+.nav a{
+    text-decoration: none;
+    color: white;
+    font-size: var(--p-font);
+    font-weight: 500;
+    padding: 15px 22px;
+}
+.nav ul{
+    margin: 0;
+}
+.nav li{list-style-type: none;}
+
+.nav a:hover{
+    color: #ffffab;
+}
+
+main{
+    /*max-width: 100vw;*/
+    overflow: hidden;
+    height: 100vh;
+}
+
+.background{
+    background-image: linear-gradient(to left, rgba(0,0,0,0.6), rgba(0,0,0,0.3)), url(../jpg/фон.jpeg);
+    background-size: cover;
+    background-position: bottom center;
+
+}
+
+.home{
+    /*padding: 70px 17% 60px;*/
+    padding-left: 15%;
+    padding-right: 25px;
+    width: 100vw;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+}
+
+.home-text h5{
+    font-size: 18px;
+    font-weight: 500;
+    margin-bottom: 5px;
+    text-transform: uppercase;
+    letter-spacing: 6px;
+}
+
+.home-text h1{
+    margin: 0 0 20px;
+    font-size: var(--h1-font);
+    font-weight: 800;
+    line-height: 1.2;
+}
+
+.home-text p{
+    font-size: var(--p-font);
+    font-weight: 500;
+    line-height: 30px;
+    color: #ffffab;
+}
+
+.btn{
+    text-decoration: none;
+    display: inline-block;
+    padding: 13px 40px;
+    background: #ffffab;
+    color: black;
+    font-size: 25px;
+    font-weight: 600;
+    border-radius: 10px;
+}
+
+.btn:hover{
+    background: black;
+    color: white;
+    border-color: white;
+}
+
+
+footer{
+    color: #fff;
+    padding: 20px;
+    text-align: center;
+    font-size: 14px;
+    font-weight: 400;
+}
