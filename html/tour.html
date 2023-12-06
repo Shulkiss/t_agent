@@ -2,25 +2,32 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../css/styles_index.css">
+    <link rel="stylesheet" href="../css/styles_tour.css">
+    <link rel="stylesheet" href="../css/styles_login.css">
+    <link rel="stylesheet" href="../css/styles_register.css">
 
     <title>Турагенство Гуд-тур</title>
     <link rel="shortcut icon" href="../jpg/иконка_2.png">
 
-
     <!--google fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;500;600;700;800&display=swap"
+          rel="stylesheet">
 
+
+    <!-- icons-->
+    <link rel="stylesheet" href="https://unpkg.com/boxicons@latest/css/boxicons.min.css">
 
     <!--scripts-->
     <script type="text/javascript" src="../js/jquery-3.7.1.js"></script>
     <script type="text/javascript" src="../js/scripts.js"></script>
 
-
 </head>
 <body>
+
 
 <header>
     <a href="index.html" class="logo">Гуд-тур</a>
@@ -31,6 +38,7 @@
             <li class="openButton"><a href="trip.html">Туры</a></li>
             <li class="openButton"><a href="contacts.html">Контакты</a></li>
             <li class="openButton">
+
                 <button type="button" onclick="modal_open('#modal_login')" class="login_open">Вход</button>
                 <div id="modal_login" >
                     <div class="login_form modal_window" >
@@ -70,6 +78,42 @@
 
 
 
+<div class="main">
+    <div class="tour">
+            <div class="tour_picture">
+                <div class="picture_one">
+                    <img src="../jpg/Тур_Ольхон_1.jpg" alt="Ольхон">
+                </div>
+                <div class="picture_two">
+                    <img src="../jpg/Тур_Ольхон.jpeg" alt="Ольхон">
+                    <img src="../jpg/Тур_Ольхон_2.jpeg" alt="Ольхон">
+                </div>
+            </div>
+            <div class="information">
+                <div class="title_tour">Исследовать Ольхон: знаковые места, обряды и закаты на льду</div>
+                <div class="info_descriptoin">Каждую зиму Байкал превращается в чарующее ледяное царство. Торосы и сокуи, трещины и гвоздики, блинчики и пузыри — каких видов замёрзшей воды тут только нет! Едем рассматривать их все. Вы узнаете, что значит «бурханить» и зачем это нужно, попробуете традиционную уху и послушаете увлекательные легенды. Побываем на севере и юге острова, а вечерами будем провожать солнце с видом на скалу Шаманку.</div>
+                <span class="tour_info">О туре</span>
+                <div class="tour_info_block">
+                    <div class="info_place"><span class="first-word">Локация: </span>Байкал, Сибирский округ</div>
+                    <div class="info_duration"><span class="first-word">Длительность: </span>3 дня</div>
+                    <div class="comfort">
+                        <span class="live">
+                            <span class="first-word">Проживание. </span>В гостинице, гостевых домах и отелях со всеми удобствами в номере. Размещение 2-местное.
+                        </span>
+                        <br>
+                        <span class="eating">
+                            <span class="first-word">Питание. </span>В 1-й и 2-й дни — завтрак, обед, ужин; в 3-й день — завтрак и обед. Дополнительное питание — за доплату.
+                        </span>
+                    </div>
+                    <div class="info_price">
+                        <span class="price"><span class="first-word">Стоимость: </span>1&nbsp;500&nbsp;Br</span>
+                        <span class="price_for">за человека</span>
+                    </div>
+                </div>
+                <button class="pay_btn">Оплатить</button>
+            </div>
+    </div>
+</div>
 
 
 
@@ -79,9 +123,14 @@
 
 
 
-    <footer class="footer">
-        <p>&copy; 2023 Туристическое агентство "Гуд-Тур". Все права защищены.</p>
-    </footer>
+
+
+
+
+
+<footer class="footer">
+    <p>&copy; 2023 Туристическое агентство "Гуд-Тур". Все права защищены.</p>
+</footer>
 
 
 </body>

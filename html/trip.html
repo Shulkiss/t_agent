@@ -2,32 +2,257 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <link rel="stylesheet" href="../css/styles.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../css/styles_index.css">
+    <link rel="stylesheet" href="../css/styles_trip.css">
+    <link rel="stylesheet" href="../css/styles_login.css">
+    <link rel="stylesheet" href="../css/styles_register.css">
 
     <title>Турагенство Гуд-тур</title>
     <link rel="shortcut icon" href="../jpg/иконка_2.png">
 
+
     <!--google fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;500;600;700;800&display=swap"
+          rel="stylesheet">
+
+    <!-- icons-->
+    <link rel="stylesheet" href="https://unpkg.com/boxicons@latest/css/boxicons.min.css">
+
+
+    <!--scripts-->
+    <script type="text/javascript" src="/js/jquery-3.7.1.js"></script>
+
+
 </head>
 <body>
-    <header>
-        <a href="#" class="logo">Гуд-тур</a>
-        <ul class="nav" >
-            <li><a href="#">Главная</a></li>
-            <li><a href="trip.html">Туры</a></li>
-            <li><a href="contacts.html">Контакты</a></li>
-            <li><a href="login.html">Вход</a></li>
+
+<header>
+    <a href="index.html" class="logo">Гуд-тур</a>
+    <button type="button" id="open_menu" class="openButton">Меню</button>
+    <nav class="nav_menu">
+        <ul>
+            <li class="openButton"><a href="index.html">Главная</a></li>
+            <li class="openButton"><a href="trip.html">Туры</a></li>
+            <li class="openButton"><a href="contacts.html">Контакты</a></li>
+            <li class="openButton">
+                <button type="button" onclick="modal_open('#modal_login')" class="login_open">Вход</button>
+                <div id="modal_login" >
+                    <div class="login_form modal_window" >
+                        <form action="../html/index.html" method="post" autocomplete="on">
+                            <h1>Вход<span class="close" onclick="modal_close('#modal_login')">X</span></h1>
+                            <input type="email" class="login" placeholder="Введите свой email" required>
+                            <input type="password" class="login" placeholder="Введите свой пароль" required>
+                            <input type="submit" value="Войти" class="btn-login">
+                            <input type="checkbox" id="remember">
+                            <label for="remember">Запомнить</label>
+                            <p>У вас ещё нет аккаунта?
+                                <button type="button" onclick="modal_open('#modal_register')" class="register_open">Зарегистрироватья</button>
+                                <div id="modal_register" >
+                                    <div class="register_form modal_window">
+                                        <form action="../html/index.html" method="post" autocomplete="on">
+                                            <h1>Регистрация<span onclick="modal_close('#modal_register')" class="close">X</span></h1>
+                                            <input type="text" class="register" placeholder="Введите свою фамилию" required/>
+                                            <input type="text" class="register" placeholder="Введите своё имя" required/>
+                                            <input type="text" class="register" placeholder="Введите своё отчество" required/>
+                                            <label for="birthday">Дата рождения</label>
+                                            <input id="birthday" type="date" class="register" required>
+                                            <input type="tel" class="register" placeholder="Введите номер телефона" required/>
+                                            <input type="email" class="register" placeholder="Введите свой email" required/>
+                                            <input type="password" class="register" placeholder="Введите пароль" required/>
+                                            <input type="submit" value="Зарегистрироваться" class="btn-register">
+                                        </form>
+                                    </div>
+                                </div>
+                            </p>
+                        </form>
+                    </div>
+                </div>
+            </li>
         </ul>
-    </header>
+    </nav>
+</header>
+
+<nav class="search-form-wrapper">
+    <div class="search-form">
+        <div class="selectCity">
+            <i class='bx bx-search'></i>
+            <input type="text" id="search_page" class="inputCity" placeholder="Куда хотите отправиться?"/>
+        </div>
+        <div class="dataTrip">
+            <i class='bx bxs-plane-take-off'></i>
+            <input type="text" id="datepicker" class="placeholderData" placeholder="Дата начала тура">
+        </div>
+        <div class="searchbtn btn-br-rad">
+            <button type="button" id="btn_search_page" class="btn">Найти тур</button>
+        </div>
+    </div>
+</nav>
+
+<div class="page-content">
+    <aside class="page_sidebar">
+        <div class="aside_stiky">
+            <div>
+                <div class="filterTour">
+                    <h2>Регион</h2>
+                    <div class="filterTypeTour">
+                        <button class="btnTypeTour" id="btnTypeTourActive" type="button">Активный отдых</button>
+                        <button class="btnTypeTour" id="btnTypeTourSea" type="button">Море</button>
+                    </div>
+                    <div class="filter-list">
+                        <label><input type="checkbox" class="filter" id="district_kr"/> Краснодарский край</label>
+                        <br>
+                        <label><input type="checkbox" class="filter" id="district_kl"/> Калининградская область</label>
+                        <br>
+                        <label><input type="checkbox" class="filter" id="district_alt"/> Алтайский край</label>
+                        <br>
+                        <label><input type="checkbox" class="filter" id="district_kav"/> Кавказ</label>
+                        <br>
+                        <label><input type="checkbox" class="filter" id="district_elbr"/> Эльбрусский район</label>
+                        <br>
+                        <label><input type="checkbox" class="filter" id="district_sbr"/> Сибирский округ</label>
+                    </div>
+                </div>
+                <div class="filterTour">
+                    <h2>Длительность</h2>
+                    <div class="filter-list">
+                        <label><input type="checkbox" class="filter"/>3 дня</label>
+                        <br>
+                        <label><input type="checkbox" class="filter"/>5 дней</label>
+                        <br>
+                        <label><input type="checkbox" class="filter"/>7 дней</label>
+                        <br>
+                        <label><input type="checkbox" class="filter"/>14 дней</label>
+                    </div>
+                </div></div>
+        </div>
+    </aside>
+
+    <main class="main-list">
+        <div class="tours-list">
+            <div class="tour">
+                <a href="tour.html" class="link_tour">
+                    <div class="tour_picture">
+                        <img src="../jpg/Тур_Ольхон.jpeg" alt="Ольхон">
+                        <div class="gradient"></div>
+                        <div class="info_duration">3 дня</div>
+                    </div>
+                    <div class="information">
+                        <div class="info_place">Сибирский окгруг</div>
+                        <div class="title_tour">Исследовать Ольхон: знаковые места, обряды и закаты на льду</div>
+                        <div class="info_price">
+                            <span class="price">1&nbsp;500&nbsp;Br</span>
+                            <span class="price_for">за человека</span>
+                        </div>
+                    </div>
+                </a>
+            </div>
+
+
+            <div class="tour">
+                <a href="tour.html" class="link_tour">
+                    <div class="tour_picture">
+                        <img src="../jpg/Тур_Ольхон.jpeg" alt="Ольхон">
+                        <div class="gradient"></div>
+                        <div class="info_duration">3 дня</div>
+                    </div>
+                    <div class="information">
+                        <div class="info_place">Сибирский окгруг, Байкал</div>
+                        <div class="title_tour">Исследовать Ольхон: знаковые места, обряды и закаты на льду</div>
+                        <div class="info_price">
+                            <span class="price">1&nbsp;500&nbsp;Br</span>
+                            <span class="price_for">за человека</span>
+                        </div>
+                    </div>
+                </a>
+            </div>
+
+            <div class="tour">
+                <a href="tour.html" class="link_tour">
+                    <div class="tour_picture">
+                        <img src="../jpg/Тур_Ольхон.jpeg" alt="Ольхон">
+                        <div class="gradient"></div>
+                        <div class="info_duration">3 дня</div>
+                    </div>
+                    <div class="information">
+                        <div class="info_place">Сибирский окгруг, Байкал</div>
+                        <div class="title_tour">Исследовать Ольхон: знаковые места, обряды и закаты на льду</div>
+                        <div class="info_price">
+                            <span class="price">1&nbsp;500&nbsp;Br</span>
+                            <span class="price_for">за человека</span>
+                        </div>
+                    </div>
+                </a>
+            </div>
+
+            <div class="tour">
+                <a href="tour.html" class="link_tour">
+                    <div class="tour_picture">
+                        <img src="../jpg/Тур_Ольхон.jpeg" alt="Ольхон">
+                        <div class="gradient"></div>
+                        <div class="info_duration">3 дня</div>
+                    </div>
+                    <div class="information">
+                        <div class="info_place">Сибирский окгруг, Байкал</div>
+                        <div class="title_tour">Исследовать Ольхон: знаковые места, обряды и закаты на льду</div>
+                        <div class="info_price">
+                            <span class="price">1&nbsp;500&nbsp;Br</span>
+                            <span class="price_for">за человека</span>
+                        </div>
+                    </div>
+                </a>
+            </div>
+
+            <div class="tour">
+                <a href="tour.html" class="link_tour">
+                    <div class="tour_picture">
+                        <img src="../jpg/Тур_Ольхон.jpeg" alt="Ольхон">
+                        <div class="gradient"></div>
+                        <div class="info_duration">3 дня</div>
+                    </div>
+                    <div class="information">
+                        <div class="info_place">Сибирский окгруг, Байкал</div>
+                        <div class="title_tour">Исследовать Ольхон: знаковые места, обряды и закаты на льду</div>
+                        <div class="info_price">
+                            <span class="price">1&nbsp;500&nbsp;Br</span>
+                            <span class="price_for">за человека</span>
+                        </div>
+                    </div>
+                </a>
+            </div>
+
+            <div class="tour">
+                <a href="tour.html" class="link_tour">
+                    <div class="tour_picture">
+                        <img src="../jpg/Тур_Ольхон.jpeg" alt="Ольхон">
+                        <div class="gradient"></div>
+                        <div class="info_duration">3 дня</div>
+                    </div>
+                    <div class="information">
+                        <div class="info_place">Сибирский окгруг, Байкал</div>
+                        <div class="title_tour">Исследовать Ольхон: знаковые места, обряды и закаты на льду</div>
+                        <div class="info_price">
+                            <span class="price">1&nbsp;500&nbsp;Br</span>
+                            <span class="price_for">за человека</span>
+                        </div>
+                    </div>
+                </a>
+            </div>
+
+        </div>
+    </main>
+
+</div>
 
 
 
+<footer class="footer">
+    <p>&copy; 2023 Туристическое агентство "Гуд-Тур". Все права защищены.</p>
+</footer>
 
-    <footer class="footer">
-        <p>&copy; 2023 Туристическое агентство "Гуд-Тур". Все права защищены.</p>
-    </footer>
+<script type="text/javascript" src="/js/scripts.js"></script>
+
 </body>
 </html>

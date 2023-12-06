@@ -2,29 +2,74 @@
 <html lang="ru">
 <head>
     <meta charset="UTF-8">
-    <link rel="stylesheet" href="../css/styles.css">
+    <link rel="stylesheet" href="../css/styles_index.css">
+    <link rel="stylesheet" href="../css/styles_login.css">
+    <link rel="stylesheet" href="../css/styles_register.css">
 
     <title>Турагенство Гуд-тур</title>
     <link rel="shortcut icon" href="../jpg/иконка_2.png">
 
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+
     <!--google fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;500;600;700;800&display=swap"
           rel="stylesheet">
+
+
+    <!--scripts-->
+    <script type="text/javascript" src="../js/jquery-3.7.1.js"></script>
+    <script type="text/javascript" src="../js/scripts.js"></script>
 </head>
 <body>
 <div class="background">
+
     <header>
-        <a href="#" class="logo">Гуд-тур</a>
-        <ul class="nav">
-            <li><a href="#">Главная</a></li>
-            <li><a href="trip.html">Туры</a></li>
-            <li><a href="contacts.html">Контакты</a></li>
-            <li><a href="login.html">Вход</a></li>
-        </ul>
+        <a href="index.html" class="logo">Гуд-тур</a>
+        <button type="button" id="open_menu" class="openButton">Меню</button>
+        <nav class="nav_menu">
+            <ul>
+                <li class="openButton"><a href="index.html">Главная</a></li>
+                <li class="openButton"><a href="trip.html">Туры</a></li>
+                <li class="openButton"><a href="contacts.html">Контакты</a></li>
+                <li class="openButton">
+                    <button type="button" onclick="modal_open('#modal_login')" class="login_open">Вход</button>
+                    <div id="modal_login" >
+                        <div class="login_form modal_window" >
+                            <form action="../html/index.html" method="post" autocomplete="on">
+                                <h1>Вход<span class="close" onclick="modal_close('#modal_login')">X</span></h1>
+                                <input type="email" class="login" placeholder="Введите свой email" required>
+                                <input type="password" class="login" placeholder="Введите свой пароль" required>
+                                <input type="submit" value="Войти" class="btn-login">
+                                <input type="checkbox" id="remember">
+                                <label for="remember">Запомнить</label>
+                                <p>У вас ещё нет аккаунта?
+                                    <button type="button" onclick="modal_open('#modal_register')" class="register_open">Зарегистрироватья</button>
+                                <div id="modal_register" >
+                                    <div class="register_form modal_window">
+                                        <form action="../html/index.html" method="post" autocomplete="on">
+                                            <h1>Регистрация<span onclick="modal_close('#modal_register')" class="close">X</span></h1>
+                                            <input type="text" class="register" placeholder="Введите свою фамилию" required/>
+                                            <input type="text" class="register" placeholder="Введите своё имя" required/>
+                                            <input type="text" class="register" placeholder="Введите своё отчество" required/>
+                                            <label for="birthday">Дата рождения</label>
+                                            <input id="birthday" type="date" class="register" required>
+                                            <input type="tel" class="register" placeholder="Введите номер телефона" required/>
+                                            <input type="email" class="register" placeholder="Введите свой email" required/>
+                                            <input type="password" class="register" placeholder="Введите пароль" required/>
+                                            <input type="submit" value="Зарегистрироваться" class="btn-register">
+                                        </form>
+                                    </div>
+                                </div>
+                                </p>
+                            </form>
+                        </div>
+                    </div>
+                </li>
+            </ul>
+        </nav>
     </header>
 
 
@@ -37,6 +82,7 @@
         </article>
     </main>
 </div>
+
 <footer class="footer">
     <p>&copy; 2023 Туристическое агентство "Гуд-Тур". Все права защищены.</p>
 </footer>

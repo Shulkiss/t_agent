@@ -1,0 +1,261 @@
+*{
+    font-family: 'Open Sans', sans-serif;
+    box-sizing: border-box;
+}
+
+:root{
+    --h1-font: 4rem;
+    --h2-font: 3 rem;
+    --p-font: 1rem;
+}
+
+body{
+    margin: 0;
+    color: #fff;
+    background: #1a1a1a;
+    position: relative;
+    width: 100vw;
+    overflow-x: hidden;
+}
+
+
+header{
+    top: 0;
+    right: 0;
+    width: 100vw;
+    background: transparent;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.logo{
+    font-size: 33px;
+    font-weight: 700;
+    padding: 22px 17%;
+    text-decoration: none;
+    color: white;
+}
+
+.nav_menu{
+    padding-right: 50px;
+}
+
+.nav_menu a{
+    text-decoration: none;
+    color: white;
+    font-size: var(--p-font);
+    font-weight: 500;
+    padding: 15px 22px;
+
+
+}
+.nav_menu button{
+    background-color: transparent;
+    border: transparent;
+    color: white;            
+    font-size: var(--p-font);
+    font-weight: 500;        
+}
+
+.nav_menu ul{
+    display: flex;
+    margin: 0;
+}
+.nav_menu li{list-style-type: none;}
+
+.nav_menu a:hover,
+.nav_menu button:hover{
+    color: #ffffab;
+    cursor: pointer;
+}
+
+#open_menu{
+    display: none;
+    color: white;
+    background: 0;
+    border: 0;
+    /*font-weight: 700;*/
+}
+
+#open_menu:hover{
+    color: #ffffab;
+    cursor: pointer;
+}
+
+main{
+    max-width: 100vw;
+    height: 100vh;
+    overflow: hidden;
+}
+
+.background{
+    background-image: linear-gradient(to left, rgba(0,0,0,0.6), rgba(0,0,0,0.3)), url(../jpg/фон.jpeg);
+    background-size: cover;
+    background-position: bottom center;
+
+
+}
+
+.home{
+    /*padding: 70px 17% 60px;*/
+    padding-left: 15%;
+    padding-right: 25px;
+    width: 100vw;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+}
+
+.home-text h5{
+    font-size: 18px;
+    font-weight: 500;
+    margin-bottom: 5px;
+    text-transform: uppercase;
+    letter-spacing: 6px;
+}
+
+.home-text h1{
+    margin: 0;
+    font-size: var(--h1-font);
+    font-weight: 800;
+    line-height: 1.2;
+}
+
+.home-text p{
+    font-size: var(--p-font);
+    font-weight: 500;
+    line-height: 30px;
+    color: #ffffab;
+}
+
+.btn{
+    text-decoration: none;
+    display: inline-block;
+    padding: 13px 40px;
+    margin-top: 6px;
+    background: #ffffab;
+    color: black;
+    font-size: 25px;
+    font-weight: 600;
+    border-radius: 10px;
+}
+
+.btn:hover{
+    background: black;
+    color: white;
+    border-color: white;
+    cursor: pointer;
+}
+
+
+footer{
+    color: #fff;
+    padding: 20px;
+    text-align: center;
+    font-size: 14px;
+    font-weight: 400;                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               ;
+}
+
+@media (max-width: 1010px) {
+    header {
+        padding: 14px 5% 5px 5%;;
+    }
+
+    .logo{
+        padding-left: 50px;
+        padding-right: 25px;
+    }
+
+    .nav_menu{
+        padding-left: 25px;
+    }
+
+    header.sticky {
+        padding: 7px 5%;
+    }
+
+    section {
+        padding: 45px 5% 35px;
+    }
+
+    :root {
+        --h1-font: 3rem;
+        --h2-font: 2rem;
+        --p-font: 1rem;
+    }
+
+    .home {
+        height: 90vh;
+    }
+
+}
+/* Как сделать чтобы nav появлялся при нажатии menu
+и не отображался слева*/
+@media (max-width: 800px) {
+    #open_menu {
+        display: block;
+        color: white;
+        background: transparent;
+        border: transparent;
+        font-weight: bold;
+        font-size: 20px;
+        margin-bottom: 10px;
+    }
+    .logo{
+        padding-left: 70px;
+    }
+    .nav_menu{
+        display: none;
+        position: relative;
+        width: 100%;
+        height: auto;
+        /*top: 30px;*/
+        bottom: 0;
+        right: 0;
+        transition: 0.5s ease;
+        background: #1a1a1a;
+        align-items: flex-end;
+        border-radius: 20px;
+    }
+    .nav_menu ul{
+        padding: 10px 60px;
+        display: flex;
+        flex-direction: column;
+        transition: 0.2s;
+    }
+    .nav_menu ul li{
+        display: block;
+        color: white;
+        padding: 10px;
+        margin: 20px 0;
+        border: 2px solid white;
+        border-radius: 10px;
+    }
+    .nav_menu a,
+    .nav_menu .login_open{
+        font-size: 2rem;
+        font-weight: 400;
+
+    }
+    /*.nav.open{
+        .background{
+            background: #1a1a1a;
+        }
+        left: 0;
+    }*/
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
